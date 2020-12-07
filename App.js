@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import Navbar from './app/components/Navbar';
 import appReducer from './app/reducers';
-import ListItem from './app/screens/ListItem';
+import ListItemContainer from './app/container/ListItemContainer';
 
 const store = createStore(appReducer);
 
@@ -14,7 +14,7 @@ class App extends React.Component {
       <Provider store={store}>
         <View style={styles.container}>
           <Navbar />
-          <ListItem />
+          <ListItemContainer />
         </View>
       </Provider>
     );
