@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, Text, FlatList, TouchableNativeFeedback} from 'react-native';
+import { connect } from 'react-redux';
 import {getListItem} from '../services/api';
 
 class ListItem extends React.Component {
+  
+  
 
- 
   renderItem = ({item}) => {
     return (
       <TouchableNativeFeedback onPress={() => this.props.handlePressItem(item)}>
@@ -37,4 +39,9 @@ class ListItem extends React.Component {
     );
   }
 }
-export default ListItem;
+const mapStateToProps = state => {
+  return {
+    data: state.data
+  }
+}
+export default connect()( ListItem);

@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
+import { connect } from 'react-redux';
 
 class Badge extends React.PureComponent {
 
@@ -36,4 +37,10 @@ const styles = StyleSheet.create({
   text: {color: '#fff', fontSize: 20},
 });
 
-export default Badge;
+const mapStateToProps = state => {
+  return {
+    data: state.data
+  }
+}
+
+export default connect(mapStateToProps)(Badge);
