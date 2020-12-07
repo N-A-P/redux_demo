@@ -1,4 +1,3 @@
-export const ADD_TO_CARD = "ADD_TO_CARD"
+export const ADD_OR_REMOVE_CARD = "ADD_OR_REMOVE_CARD"
 export const DELETE_CARD_ITEM = "DELETE_CARD_ITEM"
-// export const ADD_TO_CARD = "ADD_TO_CARD"
-// export const ADD_TO_CARD = "ADD_TO_CARD"
+export const FETCH_ITEM = "FETCH_ITEM"

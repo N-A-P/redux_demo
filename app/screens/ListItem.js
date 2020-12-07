@@ -2,14 +2,25 @@ import React from 'react';
 import {View, Text, FlatList, TouchableNativeFeedback} from 'react-native';
 import { connect } from 'react-redux';
 import {getListItem} from '../services/api';
-
+import * as ACTIONS from '../actions/listItem'
 class ListItem extends React.Component {
+
+  componentDidMount = async () => {
+    // network request
+    let data = await getListItem();
+    data = data.map(item => ({ ...item, selected: false  }))
+    
+    this.props.dispatch(ACTIONS.fetchListItems(data))
+
+  }
   
-  
+  onPress = (item) => {
+    this.props.dispatch(ACTIONS.addOrRemoveCard(item))
+  }
 
   renderItem = ({item}) => {
     return (
-      <TouchableNativeFeedback onPress={() => this.props.handlePressItem(item)}>
+      <TouchableNativeFeedback onPress={() => this.onPress(item)}>
         <View
           style={{
             padding: 20,
@@ -41,7 +52,8 @@ class ListItem extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    data: state.data
+    data: state.listItemsReducer
   }
 }
-export default connect()( ListItem);
+
+export default connect(mapStateToProps, )( ListItem);

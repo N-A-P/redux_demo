@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
-import cardReducer from './cardReducer'
+import listItemsReducer from './listItemsReducer'
 
 const appReducer = combineReducers({
-  cardReducer
+  listItemsReducer
 })
 
 export default appReducer

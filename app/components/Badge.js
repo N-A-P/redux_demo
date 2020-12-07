@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 class Badge extends React.PureComponent {
 
   render() {
-    const number = this.props.data.filter(item => item.selected).length
+    const data = this.props.data || []
+    const number = data.filter(item => item.selected).length
     return (
       <View>
         <Image
@@ -38,8 +39,9 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = state => {
+  console.log(" badge state: ", state);
   return {
-    data: state.data
+    data: state.listItemsReducer
   }
 }
 
